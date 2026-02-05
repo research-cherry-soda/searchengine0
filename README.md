@@ -107,3 +107,40 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 ---
 
 Built with ❤️ using React Router.
+
+## AI Search Engine Additions
+
+This project now includes an AI-powered search page (home route) that returns exactly 10 results for any query and uses a gradient background.
+
+### Configure AI Provider (OpenAI)
+
+To enable real AI-generated results, set an OpenAI API key as a Cloudflare Worker secret. Without a key, the app returns deterministic mock results for local development.
+
+1. Obtain an OpenAI API key.
+2. Add the secret to your Worker environment:
+
+```bash
+wrangler secret put OPENAI_API_KEY
+```
+
+### Run Locally
+
+React dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+Worker (server actions):
+
+```bash
+npm run cf-typegen
+wrangler dev
+```
+
+### Notes
+
+- Returns 10 results per query.
+- Gradient background supports light/dark mode.
+- Falls back to mock results if `OPENAI_API_KEY` is not set.

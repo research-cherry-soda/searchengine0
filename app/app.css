@@ -8,7 +8,8 @@
 
 html,
 body {
-	@apply bg-white dark:bg-gray-950;
+	/* Soft gradient background for light/dark modes */
+	@apply bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950;
 
 	@media (prefers-color-scheme: dark) {
 		color-scheme: dark;
